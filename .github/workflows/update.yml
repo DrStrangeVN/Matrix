@@ -1805,7 +1805,7 @@ jobs:
           # 删除的空白行
           sed -i '3!{/^[[:space:]]*$/d}' "$file"
           # 加不解析字段
-            if grep -qE '^IP-(CIDR|CIDR6).*no-resolve$' "$file"; then
+            if grep -qE '^IP-(ASN|CIDR|CIDR6).*no-resolve$' "$file"; then
             sed -i '4i\no_resolve: true' "$file"
           fi
           # 修改规则类型
