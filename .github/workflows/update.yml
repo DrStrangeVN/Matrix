@@ -4,7 +4,6 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "0 0,12 * * *"
-    # cron: "0 3,15 * * *"
 
 jobs:
   matrix:
@@ -149,8 +148,8 @@ jobs:
         # 规则名称:China
         curl -L -o Matrix-io-repo/Clash/Ruleset/China.yaml "https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/update/Ruleset/China.list"
 
-        # 规则名称:ChinaASN
-        curl -L -o Matrix-io-repo/Clash/Ruleset/ChinaASN.yaml "https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/update/Ruleset/ChinaASN.list"
+        # 规则名称:ChinaASN •
+        curl -L -o Matrix-io-repo/Clash/Ruleset/ChinaASN.yaml "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaASN/ChinaASN_Resolve.list"
 
         # 规则名称:ChinaDNS
         curl -L -o Matrix-io-repo/Clash/Ruleset/ChinaDNS.yaml "https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/update/Ruleset/ChinaDNS.list"
@@ -795,6 +794,19 @@ jobs:
             echo "$file not found."
           fi
 
+          # 规则名称:ChinaASN •
+          file="ChinaASN.yaml" 
+          if [ -f "$file" ]; then
+          # 删除第二行到第五行
+          sed -i '2,5d' "$file"
+          # 修改规则名称  
+          sed -i 's/^\# NAME: ChinaASN/# 规则名称:ChinaASN/g' "$file"
+          # 修改规则统计
+          sed -i 's/^\# TOTAL: /# 规则统计:/g' "$file"
+          else
+            echo "$file not found."
+          fi
+
           # 规则名称:ChinaMax •
           file="ChinaMax.yaml" 
           if [ -f "$file" ]; then
@@ -901,7 +913,7 @@ jobs:
       run: |
         cd Matrix-io-repo/Clash/Ruleset
         for file in *.yaml; do
-          # 不处理的规则 " -ACGDPR- "
+          # 不处理的规则
           if [ "$file" != "AdBlock.yaml" ] && [ "$file" != "CNCIDR.yaml" ] && [ "$file" != "CNCIDR4.yaml" ] && [ "$file" != "GreatFireWall.yaml" ] && [ "$file" != "DIRECT.yaml" ] && [ "$file" != "PROXY.yaml" ] && [ "$file" != "REJECT.yaml" ] && [ -f "$file" ]; then
           # 第三行加空行
           sed -i '2a\\' "$file"
@@ -1051,8 +1063,8 @@ jobs:
         # 规则名称:China
         curl -L -o Matrix-io-repo/Egern/Ruleset/China.yaml "https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/update/Ruleset/China.list"
 
-        # 规则名称:ChinaASN
-        curl -L -o Matrix-io-repo/Egern/Ruleset/ChinaASN.yaml "https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/update/Ruleset/ChinaASN.list"
+        # 规则名称:ChinaASN •
+        curl -L -o Matrix-io-repo/Egern/Ruleset/ChinaASN.yaml "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaASN/ChinaASN_Resolve.list"
 
         # 规则名称:ChinaDNS
         curl -L -o Matrix-io-repo/Egern/Ruleset/ChinaDNS.yaml "https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/update/Ruleset/ChinaDNS.list"
@@ -1713,6 +1725,19 @@ jobs:
             echo "$file not found."
           fi
 
+          # 规则名称:ChinaASN •
+          file="ChinaASN.yaml"
+          if [ -f "$file" ]; then
+          # 删除第二行到第五行
+          sed -i '2,5d' "$file"
+          # 修改规则名称  
+          sed -i 's/^\# NAME: ChinaASN/# 规则名称:ChinaASN/g' "$file"
+          # 修改规则统计
+          sed -i 's/^\# TOTAL: /# 规则统计:/g' "$file"
+          else
+            echo "$file not found."
+          fi
+
           # 规则名称:ChinaMax •
           file="ChinaMax.yaml"
           if [ -f "$file" ]; then
@@ -1950,8 +1975,8 @@ jobs:
         # 规则名称:China
         curl -L -o Matrix-io-repo/Loon/Ruleset/China.list "https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/update/Ruleset/China.list"
 
-        # 规则名称:ChinaASN
-        curl -L -o Matrix-io-repo/Loon/Ruleset/ChinaASN.list "https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/update/Ruleset/ChinaASN.list"
+        # 规则名称:ChinaASN •
+        curl -L -o Matrix-io-repo/Loon/Ruleset/ChinaASN.list "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaASN/ChinaASN_Resolve.list"
 
         # 规则名称:ChinaDNS
         curl -L -o Matrix-io-repo/Loon/Ruleset/ChinaDNS.list "https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/update/Ruleset/ChinaDNS.list"
@@ -2580,6 +2605,19 @@ jobs:
             echo "$file not found."
           fi
 
+          # 规则名称:ChinaASN •
+          file="ChinaASN.list"
+          if [ -f "$file" ]; then
+          # 删除第二行到第五行
+          sed -i '2,5d' "$file"
+          # 修改规则名称  
+          sed -i 's/^\# NAME: ChinaASN/# 规则名称:ChinaASN/g' "$file"
+          # 修改规则统计
+          sed -i 's/^\# TOTAL: /# 规则统计:/g' "$file"
+          else
+            echo "$file not found."
+          fi
+
           # 规则名称:ChinaMax •
           file="ChinaMax.list"
           if [ -f "$file" ]; then
@@ -2809,8 +2847,8 @@ jobs:
         # 规则名称:China
         curl -L -o Matrix-io-repo/QuantumultX/Ruleset/China.list "https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/update/Ruleset/China.list"
 
-        # 规则名称:ChinaASN
-        curl -L -o Matrix-io-repo/QuantumultX/Ruleset/ChinaASN.list "https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/update/Ruleset/ChinaASN.list"
+        # 规则名称:ChinaASN •
+        curl -L -o Matrix-io-repo/QuantumultX/Ruleset/ChinaASN.list "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaASN/ChinaASN_Resolve.list"
 
         # 规则名称:ChinaDNS
         curl -L -o Matrix-io-repo/QuantumultX/Ruleset/ChinaDNS.list "https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/update/Ruleset/ChinaDNS.list"
@@ -3775,10 +3813,17 @@ jobs:
             echo "$file not found."
           fi
 
-          # 规则名称:ChinaASN
+          # 规则名称:ChinaASN •
           file="ChinaASN.list"
           if [ -f "$file" ]; then
-            sed -i 's/,MATRIX-IO/,ChinaASN/g' "$file"
+          # 删除第二行到第五行
+          sed -i '2,5d' "$file"
+          # 修改规则名称  
+          sed -i 's/^\# NAME: ChinaASN/# 规则名称:ChinaASN/g' "$file"
+          # 修改规则统计
+          sed -i 's/^\# TOTAL: /# 规则统计:/g' "$file"
+          # 修改新策略:ChinaASN
+          sed -i 's/,MATRIX-IO/,ChinaASN/g' "$file"
           else
             echo "$file not found."
           fi
@@ -5513,8 +5558,8 @@ jobs:
         # 规则名称:China
         curl -L -o Matrix-io-repo/Shadowrocket/Ruleset/China.list "https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/update/Ruleset/China.list"
 
-        # 规则名称:ChinaASN
-        curl -L -o Matrix-io-repo/Shadowrocket/Ruleset/ChinaASN.list "https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/update/Ruleset/ChinaASN.list"
+        # 规则名称:ChinaASN •
+        curl -L -o Matrix-io-repo/Shadowrocket/Ruleset/ChinaASN.list "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaASN/ChinaASN_Resolve.list"
 
         # 规则名称:ChinaDNS
         curl -L -o Matrix-io-repo/Shadowrocket/Ruleset/ChinaDNS.list "https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/update/Ruleset/ChinaDNS.list"
@@ -6143,6 +6188,19 @@ jobs:
             echo "$file not found."
           fi
 
+          # 规则名称:ChinaASN •
+          file="ChinaASN.list"
+          if [ -f "$file" ]; then
+          # 删除第二行到第五行
+          sed -i '2,5d' "$file"
+          # 修改规则名称  
+          sed -i 's/^\# NAME: ChinaASN/# 规则名称:ChinaASN/g' "$file"
+          # 修改规则统计
+          sed -i 's/^\# TOTAL: /# 规则统计:/g' "$file"
+          else
+            echo "$file not found."
+          fi
+
           # 规则名称:ChinaMax •
           file="ChinaMax.list"
           if [ -f "$file" ]; then
@@ -6372,8 +6430,8 @@ jobs:
         # 规则名称:China
         curl -L -o Matrix-io-repo/Stash/Ruleset/China.yaml "https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/update/Ruleset/China.list"
 
-        # 规则名称:ChinaASN
-        curl -L -o Matrix-io-repo/Stash/Ruleset/ChinaASN.yaml "https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/update/Ruleset/ChinaASN.list"
+        # 规则名称:ChinaASN •
+        curl -L -o Matrix-io-repo/Stash/Ruleset/ChinaASN.yaml "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaASN/ChinaASN_Resolve.list"
 
         # 规则名称:ChinaDNS
         curl -L -o Matrix-io-repo/Stash/Ruleset/ChinaDNS.yaml "https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/update/Ruleset/ChinaDNS.list"
@@ -7018,6 +7076,19 @@ jobs:
             echo "$file not found."
           fi
 
+          # 规则名称:ChinaASN •
+          file="ChinaASN.yaml" 
+          if [ -f "$file" ]; then
+          # 删除第二行到第五行
+          sed -i '2,5d' "$file"
+          # 修改规则名称  
+          sed -i 's/^\# NAME: ChinaASN/# 规则名称:ChinaASN/g' "$file"
+          # 修改规则统计
+          sed -i 's/^\# TOTAL: /# 规则统计:/g' "$file"
+          else
+            echo "$file not found."
+          fi
+
           # 规则名称:ChinaMax •
           file="ChinaMax.yaml" 
           if [ -f "$file" ]; then
@@ -7124,7 +7195,7 @@ jobs:
       run: |
         cd Matrix-io-repo/Stash/Ruleset
         for file in *.yaml; do
-          # 不处理的规则 " -ACGDPR- "
+          # 不处理的规则
           if [ "$file" != "AdBlock.yaml" ] && [ "$file" != "CNCIDR.yaml" ] && [ "$file" != "CNCIDR4.yaml" ] && [ "$file" != "GreatFireWall.yaml" ] && [ "$file" != "DIRECT.yaml" ] && [ "$file" != "PROXY.yaml" ] && [ "$file" != "REJECT.yaml" ] && [ -f "$file" ]; then
           # 第三行加空行
           sed -i '2a\\' "$file"
@@ -7274,8 +7345,8 @@ jobs:
         # 规则名称:China
         curl -L -o Matrix-io-repo/Surge/Ruleset/China.list "https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/update/Ruleset/China.list"
 
-        # 规则名称:ChinaASN
-        curl -L -o Matrix-io-repo/Surge/Ruleset/ChinaASN.list "https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/update/Ruleset/ChinaASN.list"
+        # 规则名称:ChinaASN •
+        curl -L -o Matrix-io-repo/Surge/Ruleset/ChinaASN.list "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/ChinaASN/ChinaASN_Resolve.list"
 
         # 规则名称:ChinaDNS
         curl -L -o Matrix-io-repo/Surge/Ruleset/ChinaDNS.list "https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/update/Ruleset/ChinaDNS.list"
@@ -7904,6 +7975,19 @@ jobs:
             echo "$file not found."
           fi
 
+          # 规则名称:ChinaASN •
+          file="ChinaASN.list"
+          if [ -f "$file" ]; then
+          # 删除第二行到第五行
+          sed -i '2,5d' "$file"
+          # 修改规则名称  
+          sed -i 's/^\# NAME: ChinaASN/# 规则名称:ChinaASN/g' "$file"
+          # 修改规则统计
+          sed -i 's/^\# TOTAL: /# 规则统计:/g' "$file"
+          else
+            echo "$file not found."
+          fi
+
           # 规则名称:ChinaMax •
           file="ChinaMax.list"
           if [ -f "$file" ]; then
@@ -8010,11 +8094,8 @@ jobs:
         if [[ -n $(git status -s) ]]; then
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          # 所有更改添加暂存区
           git add -A
-          # 提交更改与提交信息
           git commit -m "$(TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M')"
-          # 推送到远程仓库分支
           git push origin master
         else
           echo "No changes to commit."
