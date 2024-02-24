@@ -1,6 +1,6 @@
 # 配置名称: Egern 配置
 # 配置作者: Centralmatrix3
-# 更新时间: 24-02-23 00:00
+# 更新时间: 24-02-24 20:00
 
 http_port: 8200     # HTTP  代理端口
 socks_port: 8300    # SOCKS 代理端口
@@ -239,7 +239,30 @@ rules:
 # MITM
 mitm:
   enabled: true     # 是否启用
-  hostnames:        # 主机列表
-    - -*.icloud.com
-    - -buy.itunes.apple.com
-    - -weather-data.apple.com
+
+# 模块
+modules:
+  - name: 高德去广告
+    url: https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/master/Egern/Rewrite/AMAP.yaml
+    update_interval: 86400
+    enabled: true
+
+  - name: 哔站去广告
+    url: https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/master/Egern/Rewrite/BiliBili.yaml
+    update_interval: 86400
+    enabled: true
+
+  - name: 微博去广告
+    url: https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/master/Egern/Rewrite/WeiBo.yaml
+    update_interval: 86400
+    enabled: true
+
+  - name: 油管去广告
+    url: https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/master/Egern/Rewrite/YouTube.yaml
+    update_interval: 86400
+    enabled: true
+
+  - name: 重定向模块
+    url: https://raw.githubusercontent.com/Centralmatrix3/Matrix-io/master/Egern/Rewrite/Redirect.yaml
+    update_interval: 86400
+    enabled: true

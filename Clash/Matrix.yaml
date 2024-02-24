@@ -1,6 +1,6 @@
 # 配置名称: Clash 配置
 # 配置作者: Centralmatrix3
-# 更新时间: 24-02-23 00:00
+# 更新时间: 24-02-24 20:00
 
 port: 7890            # HTTP   端口
 socks-port: 7891      # Socks  端口
